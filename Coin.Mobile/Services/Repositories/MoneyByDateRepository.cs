@@ -16,8 +16,13 @@ namespace Coin.Mobile.Services.Repositories
 
         public async Task<bool> AddItemAsync(MoneyByDate item)
         {
+            if (item == null) return false;
+
             try
             {
+                if(await context.MoneyByDates.AnyAsync(x=>x.Id == item.Id))
+                    return true;
+
                 await context.MoneyByDates.AddAsync(item);
             }
             catch
@@ -55,7 +60,12 @@ namespace Coin.Mobile.Services.Repositories
 
         public async Task<IEnumerable<MoneyByDate>> GetItemsAsync(bool forceRefresh = false)
         {
-            return await context.MoneyByDates.ToListAsync();
+            return context.MoneyByDates;
+        }
+
+        public async Task<IEnumerable<MoneyByDate>> GetItemsForFilter(Func<MoneyByDate, bool> filter)
+        {
+            return await context.MoneyByDates.Where(x => filter(x)).ToListAsync();
         }
 
         public async Task<bool> SaveChangesAsync()

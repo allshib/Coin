@@ -12,6 +12,8 @@
 
         Task<IEnumerable<T>> GetItemsAsync(bool forceRefresh = false);
 
+        Task<IEnumerable<T>> GetItemsForFilter(Func<T,bool> filter);
+
         Task<bool> SaveChangesAsync();
        
     }

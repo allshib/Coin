@@ -35,6 +35,7 @@ namespace Coin.Mobile
             builder.Services.AddDbContext<DataAccess.DataContext>();
             builder.Services.AddTransient<AboutPage>();
             builder.Services.AddTransient<MainMoneyByDatePage>();
+            builder.Services.AddTransient<NewMoneyByDatePage>();
 
             builder.Services.AddTransient<IDataStore<MoneyByDate>, MoneyByDateRepository>();
 

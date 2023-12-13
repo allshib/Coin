@@ -18,7 +18,8 @@
                     HeightRequest="120"
                     PressedBackgroundColor="{StaticResource CardViewHeaderColor}"
                     CornerRadius="16"
-                    x:Name="demoModuleCard">
+                    x:Name="demoModuleCard"
+                    Pressed="demoModuleCard_Pressed">
 
             <Grid RowDefinitions="Auto, *">
                 <!--<demo:IconView Grid.Row="0"

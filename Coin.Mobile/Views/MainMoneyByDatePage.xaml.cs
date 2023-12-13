@@ -13,7 +13,7 @@ public partial class MainMoneyByDatePage : ContentPage
 		InitializeComponent();
         ViewModel = new MainMoneyByDateViewModel(dataStore);
         BindingContext = ViewModel;
-
+        Routing.RegisterRoute(nameof(NewMoneyByDatePage), typeof(NewMoneyByDatePage));
         //ViewModel.DataStore.AddItemAsync(new MoneyByDate()
         //{
         //    Date = DateTime.UtcNow,
@@ -43,4 +43,10 @@ public partial class MainMoneyByDatePage : ContentPage
     }
 
     MainMoneyByDateViewModel ViewModel { get; }
+
+    private void demoModuleCard_Pressed(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync(nameof(NewMoneyByDatePage));
+
+    }
 }
